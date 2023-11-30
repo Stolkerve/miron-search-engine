@@ -1,0 +1,42 @@
+package components
+
+templ Indexingbar(fail *bool) {
+	<form class="m-0" hx-post="/indexing" hx-trigger="submit" hx-swap="outerHTML" hx-ext="disable-element" hx-disable-element="#indexing_fielset">
+		<fielset class="m-0" id="#indexing_fielset">
+			<div class="relative flex w-full flex-wrap items-stretch">
+				<input
+ 					type="url"
+ 					name="url"
+ 					class="relative m-0 -mr-0.5 block min-w-0 w-96 flex-auto rounded-l border border-solid bg-gray-900 bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] outline-none transition duration-200 ease-in-out focus:outline-none border-neutral-600 placeholder:text-neutral-200"
+ 					placeholder="Ingresa una url de una pagina para indexar"
+ 					pattern="https://.*"
+ 					size="30"
+ 					required
+				/>
+				<button
+ 					class="relative z-[2] flex items-center rounded-r bg-gray-400 px-6 py-2.5 text-xs font-medium uppercase leading-tight text-black"
+ 					type="submit"
+				>
+					<svg
+ 						xmlns="http://www.w3.org/2000/svg"
+ 						class="h-5 w-5"
+ 						viewBox="0 0 512 512"
+					>
+						<!--!Font Awesome Free 6.5.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->
+						<path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480V396.4c0-4 1.5-7.8 4.2-10.7L331.8 202.8c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8 17.7 316.6C7.1 311.3 .3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z"></path>
+					</svg>
+				</button>
+			</div>
+			<div class="flex justify-center">
+				<img alt="Result loading..." class="htmx-indicator  m-4" width="50" src="assets/bars.svg"/>
+			</div>
+		</fielset>
+		if fail != nil {
+			if !*fail {
+				<p>Se esta indexando el documento { ":)" }</p>
+			} else {
+				<p>Sucedio un error { ":(" }</p>
+			}
+		}
+	</form>
+}

@@ -1,0 +1,25 @@
+package components
+
+templ Layout(title string) {
+	<html>
+		<head>
+			<title>{ title }</title>
+			<script src="https://unpkg.com/htmx.org@1.9.9" integrity="sha384-QFjmbokDn2DjBjq+fM+8LUIVrAgqcNW2s0PjAxHETgRn9l4fvX31ZxDxvwQnyMOX" crossorigin="anonymous"></script>
+			<script src="https://cdn.tailwindcss.com"></script>
+			<style>
+				.htmx-indicator{
+					display:none;
+				}
+				.htmx-request .htmx-indicator{
+					display:inline;
+				}
+				.htmx-request.htmx-indicator{
+					display:inline;
+				}
+			</style>
+		</head>
+		<body class="bg-slate-800 text-white">
+			{ children... }
+		</body>
+	</html>
+}

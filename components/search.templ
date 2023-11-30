@@ -1,0 +1,24 @@
+package components
+
+templ Search(result []string) {
+	@Layout("Miron") {
+		<div class="flex items-center gap-4 py-2 pl-16">
+			<a href="/">
+				<img alt="Logo" src="assets/logo.png" width="50"/>
+			</a>
+			@SearchBar()
+		</div>
+		<hr/>
+		<div>
+			<ul>
+				for _, url := range result {
+					<li>
+						<a href={ templ.SafeURL(url) }>
+							{ url }
+						</a>
+					</li>
+				}
+			</ul>
+		</div>
+	}
+}
