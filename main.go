@@ -153,10 +153,13 @@ func main() {
 			db.Pool.Save(&doc)
 		})
 
-		urls = urls[:100]
 		fmt.Printf("Indexando %v nuevos documentos\n", len(urls))
+
 		for i, url := range urls {
-			i += 1
+			if i > 100 {
+				break
+			}
+			i := i + 1
 			if _, ok := urlCache[url]; !ok {
 				urlCache[url] = true
 				go func(url string, i int) {
