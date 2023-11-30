@@ -7,6 +7,7 @@ import (
 	"math"
 	"net/http"
 	netUrl "net/url"
+	"os"
 	"sort"
 	"strings"
 	"time"
@@ -170,5 +171,5 @@ func main() {
 		return nil
 	})
 
-	e.Logger.Fatal(e.Start(":1323"))
+	e.Logger.Fatal(e.Start(fmt.Sprintf(":%s", os.Getenv("PORT"))))
 }
