@@ -87,7 +87,7 @@ func main() {
 			}
 
 			sort.SliceStable(urls, func(i, j int) bool {
-				return results[urls[i]] < results[urls[j]]
+				return results[urls[i]] > results[urls[j]]
 			})
 
 			if err := components.Search(urls).Render(context.Background(), c.Response().Writer); err != nil {
